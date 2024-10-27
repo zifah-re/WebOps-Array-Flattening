@@ -1,22 +1,17 @@
+# This code takes a deeply nested list as input and returns a flat list as output.
+
 def flatten(nested_list):
-    # Temporary list to hold the flattened elements
-    flat_list = []
+    flat_list = []  # Creating a temporary list to store the flattened elements
     
-    # Iterate over each element in the nested list
     for element in nested_list:
-        # Check if the element is a list
+        # Checking if the element is a list
         if isinstance(element, list):
-            # If it's a list, recursively flatten it
-            flat_list.extend(flatten(element))
+            flat_list.extend(flatten(element))  # If it's a list, recursively flatten it
         else:
-            # If it's not a list, append it to the flat_list
-            flat_list.append(element)
+            flat_list.append(element)  # If it's not a list, append it to the temporary list
     
     return flat_list
 
-# Example input
-input_list = eval(input("Enter a nested list: "))
-
-# Call the flatten function and print the result
-output = flatten(input_list)
-print(output)  # Expected Output: [1, 2, 3, 4, 5, 6, 7]
+input_list = eval(input("Enter a nested list: "))  # Taking input from the user
+output = flatten(input_list)  # Calling the flatten function and printing the result
+print(output)
